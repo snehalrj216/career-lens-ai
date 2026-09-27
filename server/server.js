@@ -79,12 +79,11 @@ const ai = new GoogleGenAI({
 const PRIMARY_MODEL = "gemini-3.5-flash-lite";
 const FALLBACK_MODEL = "gemini-3.1-flash-lite";
 
-
 async function generateGeminiContent(prompt) {
   const models = [
     "gemini-3.8-flash",
     "gemini-3.5-flash-lite",
-    "gemini-3.5-flash"
+    "gemini-3.5-flash",
   ];
 
   let lastError = null;
@@ -150,6 +149,7 @@ async function generateGeminiContent(prompt) {
 
   throw lastError;
 }
+
 // ==========================================
 // CREATE USER PROFILE
 // ==========================================
@@ -175,6 +175,7 @@ app.post("/api/users", async (req, res) => {
       userId: user._id,
       message: "Profile saved successfully",
     });
+
   } catch (error) {
     console.error(
       "User creation error:",
@@ -209,6 +210,7 @@ app.get("/api/users/:id", async (req, res) => {
       success: true,
       user,
     });
+
   } catch (error) {
     console.error(
       "User fetch error:",
@@ -256,8 +258,7 @@ app.post(
       if (!userId) {
         return res.status(400).json({
           success: false,
-          message:
-            "User ID is required.",
+          message: "User ID is required.",
         });
       }
 
@@ -349,6 +350,7 @@ Use headings and bullet points.
         analysisId:
           savedAnalysis._id,
       });
+
     } catch (error) {
       console.error(
         "Career analysis error:",
@@ -384,8 +386,7 @@ app.post(
       if (!userId) {
         return res.status(400).json({
           success: false,
-          message:
-            "User ID is required.",
+          message: "User ID is required.",
         });
       }
 
@@ -615,6 +616,7 @@ ${resumeText}
         analysisId:
           savedResumeAnalysis._id,
       });
+
     } catch (error) {
       console.error(
         "Resume analysis error:",
@@ -626,6 +628,7 @@ ${resumeText}
         message:
           "Resume analysis failed. Please upload the resume in PDF format and try again.",
       });
+
     } finally {
       // ==========================================
       // DESTROY PDF PARSER
@@ -783,6 +786,7 @@ Use clear headings and bullet points.
         roadmapId:
           savedRoadmap._id,
       });
+
     } catch (error) {
       console.error(
         "Roadmap error:",
@@ -819,7 +823,7 @@ mongoose
 
     app.listen(PORT, () => {
       console.log(
-        `Server running on http://localhost:${PORT}`
+        `Server running on port ${PORT}`
       );
     });
   })

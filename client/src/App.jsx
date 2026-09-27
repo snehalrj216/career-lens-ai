@@ -109,7 +109,7 @@ if (!currentUserId) {
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:5000/api/users/${currentUserId}`
+          `http://https://career-lens-ai-0qpx.onrender.com/api/users/${currentUserId}`
         );
 
         const data = await response.json();
@@ -168,7 +168,7 @@ if (!currentUserId) {
     try {
       // Save user profile
       const userResponse = await fetch(
-        "http://127.0.0.1:5000/api/users",
+        "http://https://career-lens-ai-0qpx.onrender.com/api/users",
         {
           method: "POST",
           headers: {
@@ -204,7 +204,7 @@ if (!currentUserId) {
 
       // Generate career analysis
       const response = await fetch(
-        "http://127.0.0.1:5000/api/career-analysis",
+        "http://https://career-lens-ai-0qpx.onrender.com/api/career-analysis",
         {
           method: "POST",
           headers: {
@@ -327,7 +327,7 @@ if (!currentUserId) {
       );
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/resume-analysis",
+        "http://https://career-lens-ai-0qpx.onrender.com/api/resume-analysis",
         {
           method: "POST",
           body: formDataToSend,
@@ -391,7 +391,7 @@ if (!currentUserId) {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/roadmap",
+        "http://https://career-lens-ai-0qpx.onrender.com/api/roadmap",
         {
           method: "POST",
           headers: {
